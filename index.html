@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inici de sessió</title>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="box-login">
+      <img src="logo.png" alt="Logo cfp" class="logo">
+      <form action="/login" method="post">
+        <label class="mdc-text-field mdc-text-field--outlined">
+        <input type="text" class="mdc-text-field__input" name="username" required>
+        <span class="mdc-notched-outline">
+        <span class="mdc-notched-outline__leading"></span>
+        <span class="mdc-notched-outline__notch">
+        <span class="mdc-floating-label">Nom d'usuari</span>
+        </span>
+        <span class="mdc-notched-outline__trailing"></span>
+        </span>
+        </label>
+        <br><br>
+        <label class="mdc-text-field mdc-text-field--outlined">
+        <input type="password" class="mdc-text-field__input" name="pass" required>
+        <span class="mdc-notched-outline">
+        <span class="mdc-notched-outline__leading"></span>
+        <span class="mdc-notched-outline__notch">
+        <span class="mdc-floating-label">Contraseña</span>
+        </span>
+        <span class="mdc-notched-outline__trailing"></span>
+        </span>
+        </label>
+        <br><br>
+        <a href ="">Heu oblidat la contrasenya?</a>
+        <br><br>
+        <button class="mdc-button mdc-button--raised" type="submit">
+          <div class="boton">
+        <span class="mdc-button__label">Enviar</span>
+        </div>
+        </button>
+      </form>
+    </div>
+  </div>
+  <script>
+    const textFields = document.querySelectorAll('.mdc-text-field');
+    textFields.forEach(tf => mdc.textField.MDCTextField.attachTo(tf));
+  </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+html{
+    font-family: "Montserrat", sans-serif;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+.image{
+    display: block;
+    margin: 0 auto;
+}
+.logo{
+    width: 50px;
+    height: 50px;
+}
+.fotos{
+    width: 70%;
+    height: auto;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px black;
+    background-color: #0FA4F4;
+    padding: 12px;
+    position: sticky;
+    top: 0;
+}
+p{
+    text-align: center;
+}
+.header-start{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+.header-end svg {
+    cursor: pointer;
+    transition: fill 0.3s;
+    fill: rgb(79, 79, 79);
+}
+.header-end svg:hover {
+  fill: white; /* azul al pasar el ratón */
+}
+nav {
+  padding: 10px 20px;
+}
+
+.nav-menu {
+  list-style: none;          
+  display: flex;           
+  gap: 20;                 
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+    border: 1px solid transparent;
+  text-decoration: none;    
+  color: white;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+
+.nav-menu li a:hover {
+  background-color: white;
+  color: #007bff;
+  transform: translateY(-2px);
+}
+#welcome{
+    text-align: center;
+}
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 12px;
+    border-top: solid 1px black;
+    background-color: rgb(57, 57, 57);
+    color: white;
+}
+.footer-end{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+.footer-end p a{
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding: 8px 16px;
+}
+.footer-end p a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+.footer-end p a:hover::after {
+    width: 100%;
+
+}
+.selected{
+    font-weight: 700;
+}
+.main{
+    padding: 16px;
+}
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+}
+.afegir{
+    background-color: #0FA4F4;
+}
+
+.eliminar{
+    background-color: #F64064;
+    color: white;
+}
+.boto{
+    border-radius: 8px;
+    text-align: center;
+    border: solid black 2px;
+    cursor: pointer;
+    height: 28px;
+    width: 88px;
+    transition: all 0.25s ease;
+}
+.afegir:hover{
+    box-shadow: 0 0 8px rgba(15,164,244,0.6),
+                0 0 16px rgba(15,164,244,0.6),
+                0 0 24px rgba(15,164,244,0.6);
+}
+.eliminar:hover{
+    box-shadow: 0 0 8px rgba(244, 15, 15, 0.6),
+                0 0 16px rgba(244, 15, 15, 0.6),
+                0 0 24px rgba(244, 15, 15, 0.6);
+}
+.empresa{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.adrecaempresa{
+    width: 300px;
+}
+.nomempresa{
+    width: 300px;
+}
+.sensempresa{
+    width: 80px;
+}
+.idoneitatempresa{
+    width: 50px;
+}

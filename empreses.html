@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empreses</title>
+    <link rel="stylesheet" href="style_home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+      <div class="hug">
+    <div class="header">
+      <div class="header-start">
+<!-- aqui van el logo i botons -->
+        <img src="logo.png" class="image logo" href="/home">
+        <h2 class="title">CFP</h2>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="#">Col·laboracions</a></li>
+            <li class="selected"><strong><a href="/empreses">Empreses</a></strong></li>
+            <li><a href="#">Convenis</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header-end">
+<!-- aqui va la lupa -->
+ <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000000"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+        </div>
+    </div>
+    <div class="main">
+      <div class="botones">
+        <button class="afegir boto glow">Afegir</button>
+        <button class="eliminar boto glow">Eliminar</button>
+      </div>
+      <div id="empreses">
+      </div>
+    </div>
+    <div class="footer">
+        <div class="footer-start">
+        <p>Copyright © 2026 - Centre de Formació Professional - Aixovall</p>
+        </div>
+        <div class="footer-end">
+        <p><a href="#">Termes de servei</a></p>
+        <p><a href="#">Privacitat</a></p>
+        </div>
+    </div>
+    </div>
+    <script>
+      async function lectura_empreses() {
+        try{
+          const res = await fetch('/lectura_empreses');
+          if(!res.ok) throw new Error('error');
+          const data = await res.json();
+          const empreses_holder=document.getElementById('empreses');
+          if(empreses_holder){
+            put_empreses(data, empreses_holder);
+          } 
+        }catch(error){
+          console.error(error);
+          window.location.href='/';
+        }
+      }
+      function put_empreses(data, empreses_holder){
+        for (let i = 0; i < data.length; i++){
+          // nom
+          const div=document.createElement("div");
+          const divnom=document.createElement("div");
+          divnom.className="nomempresa"
+          div.id=`empresa#${i}`;
+          div.className="empresa"
+          empreses_holder.appendChild(div);
+          const nom=document.createElement("p");
+          nom.textContent = data[i].nom;
+          div.appendChild(divnom);
+          divnom.appendChild(nom);
+          // adreça
+          const divadreca=document.createElement("div");
+          divadreca.className="adrecaempresa"
+          const adreca=document.createElement("p");
+          adreca.textContent = data[i].adreca;
+          div.appendChild(divadreca);
+          divadreca.appendChild(adreca)
+          // sens funcional ... boolean
+          const divsens=document.createElement("div");
+          divsens.className="sensempresa";
+          const sensempresa=document.createElement("p");
+          if(data[i].sens_div_func){
+            sensempresa.textContent="Sí"
+          } else {
+            sensempresa.textContent="No";
+          }
+          div.appendChild(divsens);
+          divsens.appendChild(sensempresa);
+          // idoneitat
+          const dividoneitat=document.createElement("div");
+          dividoneitat.className="idoneitatempresa";
+          const idoneitatempresa = document.createElement("p");
+          idoneitatempresa.textContent=data[i].idoneitat;
+          div.appendChild(dividoneitat);
+          dividoneitat.appendChild(idoneitatempresa);
+          // comentaris generals
+          // actiu
+          // incidencies
+        }
+      }
+      lectura_empreses();
+      
+
+    </script>
+</body>
+</html>
