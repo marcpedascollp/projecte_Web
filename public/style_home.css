@@ -160,7 +160,7 @@ nav {
     align-items: center;
 }
 .adrecaempresa{
-    width: 300px;
+    width: 200px;
 }
 .nomempresa{
     width: 300px;
@@ -170,4 +170,10 @@ nav {
 }
 .idoneitatempresa{
     width: 50px;
+}
+.comentaris-empresa{
+    width: 300px;
+}
+.is-active{
+    width: 40px;
 }

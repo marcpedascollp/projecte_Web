@@ -102,8 +102,26 @@
           div.appendChild(dividoneitat);
           dividoneitat.appendChild(idoneitatempresa);
           // comentaris generals
+          const divComentaris=document.createElement("div");
+          divComentaris.className="comentaris-empresa";
+          const comentariEmpresa=document.createElement("p");
+          comentariEmpresa.textContent=data[i].comentaris_generals;
+          div.appendChild(divComentaris);
+          divComentaris.appendChild(comentariEmpresa);
           // actiu
-          // incidencies
+          const divActive=document.createElement("div");
+          divActive.className="is-active";
+          const isActive=document.createElement("p");
+          if(!data[i].actiu){
+            isActive.textContent="NO";
+            isActive.style.color="red";
+          } else {
+            isActive.textContent="SI";
+            isActive.style.color="green";
+          }
+          div.appendChild(divActive);
+          divActive.appendChild(isActive);
+          // lectura_incidencies
         }
       }
       lectura_empreses();
