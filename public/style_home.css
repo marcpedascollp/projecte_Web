@@ -163,7 +163,7 @@ nav {
     width: 200px;
 }
 .nomempresa{
-    width: 300px;
+    width: 260px;
 }
 .sensempresa{
     width: 80px;
@@ -176,4 +176,23 @@ nav {
 }
 .is-active{
     width: 40px;
+}
+.div-boto{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.incidencia{
+    border-radius: 8px;
+    text-align: center;
+    border: solid black 2px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background-color: lightsalmon;
+}
+.incidencia:hover{
+    box-shadow: 0 0 8px rgba(172, 73, 34, 0.6),
+                0 0 16px rgba(172, 73, 34, 0.6),
+                0 0 24px rgba(129, 53, 23, 0.6);
 }

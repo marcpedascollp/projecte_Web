@@ -118,3 +118,39 @@ app.get('/lectura_empreses', async (req, res) => {
     });
   }
 });
+app.get('/lectura_incidencies', async(req, res) => {
+  if (!req.session.user){
+    return res.redirect("index");
+  }
+  try{
+    const [rows] = await pool.query('SELECT * FROM incidents');
+    res.json(rows);
+  } catch(error){
+    console.error(error);
+    return res.redirect("index");
+  }
+});
+
+app.get('/lectura_incidencies/:id', async (req, res) => {
+  if (!req.session.user){
+    return res.redirect("index");
+  }
+
+  const idEmpresa = parseInt(req.params.id);
+
+  if (isNaN(idEmpresa)) {
+    return res.status(400).json({ error: "ID invalid" });
+  }
+
+  try {
+    const [rows] = await pool.query(
+      'SELECT * FROM incidents WHERE id_empresa = ?',
+      [idEmpresa]
+    );
+
+    res.json(rows);
+  } catch (error) {
+    console.error(error);
+    return res.redirect("index");
+  }
+});

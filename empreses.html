@@ -36,6 +36,29 @@
         <button class="eliminar boto glow">Eliminar</button>
       </div>
       <div id="empreses">
+        <div class="cabecera-empresa empresa">
+          <div class="nomempresa">
+            <p>Nom</p>
+          </div>
+          <div class="adrecaempresa">
+            <p>Adreça</p>
+          </div>
+          <div class="sensempresa">
+            <p>Sensibilitat Empresa</p>
+          </div>
+          <div class="idoneitatempresa">
+            <p>Idoneitat</p>
+          </div>
+          <div class="comentaris-empresa">
+            <p>Comentaris generals</p>
+          </div>
+          <div class="is-active">
+            <p>Actiu?</p>
+          </div>
+          <div class="div-boto">
+            <p>Incidents</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="footer">
@@ -108,7 +131,7 @@
           comentariEmpresa.textContent=data[i].comentaris_generals;
           div.appendChild(divComentaris);
           divComentaris.appendChild(comentariEmpresa);
-          // actiu
+          // actiu...boolean
           const divActive=document.createElement("div");
           divActive.className="is-active";
           const isActive=document.createElement("p");
@@ -121,12 +144,22 @@
           }
           div.appendChild(divActive);
           divActive.appendChild(isActive);
-          // lectura_incidencies
+          // boto_incidents
+          const divBoto=document.createElement("div");
+          divBoto.className="div-boto"
+          const botoIncidencia = document.createElement("button");
+          botoIncidencia.id=`botoIncidencia${data[i].id}`;
+
+          botoIncidencia.classList.add("incidencia");
+          botoIncidencia.textContent="+"
+          divBoto.appendChild(botoIncidencia);
+          div.appendChild(divBoto);
         }
       }
       lectura_empreses();
-      
+      function imprimeixIncidents(){
 
+      }
     </script>
 </body>
 </html>
